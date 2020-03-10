@@ -77,15 +77,14 @@ void circleIntersectCircle(Circle c1, Circle c2) {
 int main(int argc, char** argv) {
 	ifstream fin;
 	ofstream fout;
-	/*for (int i = 0; i < argc; ++i) {
+	for (int i = 0; i < argc; ++i) {
 		if (strcmp(argv[i], "-i") == 0) {
 			fin.open(argv[++i]);
 		}
 		if (strcmp(argv[i], "-o") == 0) {
 			fout.open(argv[++i]);
 		}
-	}*/
-	fin.open("input.txt");
+	}
 	int N;
 	fin >> N;
 	for (int i = 0; i < N; ++i) {
@@ -104,17 +103,17 @@ int main(int argc, char** argv) {
 			circles.push_back(c);
 		}
 	}
-	for (int i = 0; i < (int)lines.size(); ++i) {
+	for (int i = 0; i < (int)lines.size(); ++i) {//直线与直线相交
 		for (int j = i + 1; j < (int)lines.size(); ++j) {
 			lineIntersectLine(lines[i], lines[j]);
 		}
 	}
-	for (int i = 0; i < (int)lines.size(); ++i) {
+	for (int i = 0; i < (int)lines.size(); ++i) {//直线与圆相交
 		for (int j = 0; j < (int)circles.size(); ++j) {
 			lineIntersectCircle(lines[i], circles[j]);
 		}
 	}
-	for (int i = 0; i < (int)circles.size(); ++i) {
+	for (int i = 0; i < (int)circles.size(); ++i) {//圆与圆相交
 		for (int j = i + 1; j < (int)circles.size(); ++j) {
 			if (circles[i].r < circles[j].r) {
 				circleIntersectCircle(circles[j], circles[i]);
@@ -124,6 +123,5 @@ int main(int argc, char** argv) {
 			}
 		}
 	}
-	cout << points.size() << endl;
 	fout << points.size()<<endl;
 }

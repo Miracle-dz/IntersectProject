@@ -9,12 +9,12 @@ public:
 		this->x = x;
 		this->y = y;
 	}
-	bool operator<(const Point& p) const {
+	bool operator<(const Point& p) const {//使用自定义类型的set需要重载<运算符
 		if (x < p.x && p.x - x > 1e-8) {
 			return true;
 		}
 		else {
-			if (fabs(x - p.x) <= 1e-8 && y < p.y && p.y - y > 1e-8) {
+			if (fabs(x - p.x) <= 1e-8 && y < p.y && p.y - y > 1e-8) { //采用1e-8的精度判断相等
 				return true;
 			}
 		}
@@ -22,7 +22,7 @@ public:
 	}
 };
 class Line {
-public:
+public://使用一般式表示直线，避免使用double出现精度损失。
 	long long a;
 	long long b;
 	long long c;
