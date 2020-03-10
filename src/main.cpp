@@ -115,12 +115,7 @@ int main(int argc, char** argv) {
 	}
 	for (int i = 0; i < (int)circles.size(); ++i) {//Ô²ÓëÔ²Ïà½»
 		for (int j = i + 1; j < (int)circles.size(); ++j) {
-			if (circles[i].r < circles[j].r) {
-				circleIntersectCircle(circles[j], circles[i]);
-			}
-			else {
-				circleIntersectCircle(circles[i], circles[j]);
-			}
+			circleIntersectCircle(circles[i], circles[j]);
 		}
 	}
 	fout << points.size()<<endl;
